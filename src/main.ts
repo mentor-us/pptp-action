@@ -30,7 +30,7 @@ async function run(): Promise<void> {
     await exec.exec('sudo cat /etc/ppp/peers/myvpn')
     await exec.exec('sudo cat /etc/ppp/chap-secrets')
 
-    await exec.exec('sudo modprobe nf_conntrack_pptp')
+    await exec.exec('sudo modprobe nf_conntrack_proto_gre nf_conntrack_pptp')
 
     await exec.exec('sudo pppd call myvpn debug dump logfd 2 updetach')
   } catch (error) {
